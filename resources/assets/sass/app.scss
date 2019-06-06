@@ -1,9 +1,19 @@
-
-
 /* Includes */
 @import 'bootstrap/bootstrap.scss';
 @import 'icons';
 @import './owl-carousel/owl.carousel';
 @import './owl-carousel/owl.theme.default';
+@import "variables";
+@import "mixins";
+@import "reset";
+@import "predefine";
+@import "header";
+@import "banner";
+@import "blog";
+@import "contact";
+@import "elements";
+@import "home";
+@import "responsive";
+@import "footer";
 
 

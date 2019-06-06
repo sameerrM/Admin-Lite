@@ -1,16 +1,60 @@
 $(function () {
+    //* Navbar Fixed
+    var nav_offset_top = $('header').height() + 50;
 
-    $('#datepicker').datepicker();
+    $(window).scroll(function() {
+        var scroll = $(window).scrollTop();
+        if (scroll >= nav_offset_top ) {
+            $(".header_area").addClass("navbar_fixed");
+        } else {
+            $(".header_area").removeClass("navbar_fixed");
+        }
+    });
 
-    var review = $('.client_review_part');
-    review.owlCarousel({
+    $(".brand-carousel").owlCarousel({
         items: 1,
-        loop: true,
-        dots: true,
-        autoplay: true,
-        autoplayHoverPause: true,
-        autoplayTimeout: 5000,
-        nav: false,
+        autoplay:false,
+        loop:true,
+        nav:false,
+        dots:false,
+        responsive: {
+            0: {
+                items: 2,
+            },
+            480: {
+                items: 3,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 6,
+            }
+        }
+    });
+
+    function active_testimonial() {
+        if ($('.active_testimonial').length) {
+            $('.active_testimonial').owlCarousel({
+                loop: true,
+                margin: 0,
+                items: 1,
+                nav: false,
+                autoplay: false,
+                smartSpeed: 1500,
+                dots: true,
+                responsiveClass: true
+            })
+        }
+    }
+    active_testimonial();
+
+    $('#play-home-video').magnificPopup({
+        type: 'iframe',
+        mainClass: 'mfp-fade',
+        removalDelay: 160,
+        preloader: false,
+        fixedContentPos: false
     });
 
     $('.navbar-nav').onePageNav({
@@ -20,29 +64,6 @@ $(function () {
         scrollThreshold: 0.5,
         filter: '',
         easing: 'swing'
-    });
-
-    // menu fixed
-    $(window).scroll(function () {
-        var window_top = $(window).scrollTop() + 1;
-        if (window_top > 50) {
-            $('.main_menu').addClass('menu_fixed animated fadeInDown');
-        } else {
-            $('.main_menu').removeClass('menu_fixed animated fadeInDown');
-        }
-    });
-
-    if (document.getElementById('default-select')) {
-        $('select').niceSelect();
-    }
-
-    $('.popup-youtube').magnificPopup({
-        // disableOn: 700,
-        type: 'iframe',
-        mainClass: 'mfp-fade',
-        removalDelay: 160,
-        preloader: false,
-        fixedContentPos: false
     });
 });
 
