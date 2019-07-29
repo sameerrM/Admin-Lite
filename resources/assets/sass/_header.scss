@@ -28,11 +28,12 @@
         margin-right: 45px;
 
         .nav-link {
-          font: 500 12px/100px $primary-font;
+          font: 500 15px/100px $primary-font;
           text-transform: uppercase;
           color: #000000;
           padding: 0px;
           display: inline-block;
+          border-bottom: 3px solid transparent;
 
           &:after {
             display: none;
@@ -43,6 +44,7 @@
         &.active {
           .nav-link {
             color: $primary-color;
+            border-bottom: 3px solid $primary-color;
           }
         }
 
